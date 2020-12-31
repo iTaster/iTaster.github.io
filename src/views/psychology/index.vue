@@ -29,33 +29,29 @@
                 <article class="tab-content">
                 </article>
             </li>
+            <li class="deadline"><span style="font-family: cursive">距2022考研</span><Countdown></Countdown></li>
         </ul>
     </main>
 </template>
 
 <script>
+    import Countdown from "../../components/Countdown";
     export default {
-        name: "PSY"
+        name: "PSY",
+        components: {Countdown}
     }
 </script>
 
-<style>
-
+<style lang="scss">
     body {
         padding: 0;
         margin: 0;
         background: #1e1f26;
     }
 
-    svg{
+    svg {
         display: block;
-        margin:10px auto;
-        margin-bottom: 0;
-    }
-
-    .page-wrap {
-        width: 95%;
-        margin: 0 auto;
+        margin: 10px auto 0;
     }
 
     h1 {
@@ -82,23 +78,23 @@
         float: none;
         list-style: none;
         position: relative;
-        margin: 0 auto;
+        margin: 0 20px;
         padding: 0;
         text-align: left;
-    }
 
-    .tab-wrap li {
-        float: left;
-        display: block;
-    }
+        li {
+            float: left;
+            display: block;
+        }
 
-    .tab-wrap label {
-        position: relative;
-        display: inline-block;
-        padding: 1.5em 1.5em 1em;
-        color: #fff;
-        text-decoration: none;
-        margin: 0 10px 0 0px;
+        label {
+            position: relative;
+            display: inline-block;
+            padding: 1.5em 1.5em 1em;
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px 0 0px;
+        }
     }
 
     .label-1 {
@@ -113,54 +109,65 @@
         z-index: 80;
     }
 
-    .tab-wrap label:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 10px;
-        left: 0;
-        z-index: -1;
-        border: .1em solid current;
-        border-bottom: none;
-        border-radius: 10px 10px 0 0;
-        background: #1e1f26;
+    .tab-wrap {
+        label:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 10px;
+            left: 0;
+            z-index: -1;
+            border: .1em solid current;
+            border-bottom: none;
+            border-radius: 10px 10px 0 0;
+            background: #1e1f26;
+            -webkit-transform: perspective(5px) rotateX(2deg);
+            transform: perspective(5px) rotateX(2deg);
+            -webkit-transform-origin: left;
+            -ms-transform-origin: left;
+            transform-origin: left;
+        }
 
+        .tab-content {
+            z-index: 200;
+            display: none;
+            overflow: hidden;
+            width: 100%;
+            position: absolute;
+            top: 53px;
+            left: 0;
+            padding: 20px;
+            background: #1e242f;
+            border-radius: 3px;
+            border: .1em solid current;
+            border-top: 0;
+        }
 
-        -webkit-transform: perspective(5px) rotateX(2deg);
-        transform: perspective(5px) rotateX(2deg);
+        [id^="tab"]:checked {
+            + label {
+                z-index: 200;
+                margin-bottom: -1px;
+                border-top-width: 1px;
 
-        -webkit-transform-origin: left;
-        -ms-transform-origin: left;
-        transform-origin: left;
+                &:before {
+                    background: #1e242f;
+                }
+            }
+
+            ~ .tab-content {
+                display: block;
+            }
+        }
+        .deadline {
+            color: white;
+            display: flex;
+            align-items: center;
+            float: right;
+            text-align: center;
+            height: 60px;
+        }
     }
 
-    .tab-wrap .tab-content {
-        z-index: 200;
-        display: none;
-        overflow: hidden;
-        width: 100%;
-        position: absolute;
-        top: 53px;
-        left: 0;
-        padding: 20px;
-        background: #1e242f;
-        border-radius: 3px;
-        border: .1em solid current;
-        border-top: 0;
-    }
 
-    .tab-wrap [id^="tab"]:checked + label {
-        z-index: 200;
-        margin-bottom: -1px;
-        border-top-width: 1px;
-    }
-
-    .tab-wrap [id^="tab"]:checked + label:before {
-        background: #1e242f;
-    }
-
-    .tab-wrap [id^="tab"]:checked ~ .tab-content{
-        display: block;
-    }
 </style>
