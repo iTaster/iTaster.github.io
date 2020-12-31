@@ -10,7 +10,7 @@
                     普通心理学
                 </label>
                 <article class="tab-content">
-                    <img src="./svg/GP.svg" alt="">
+                    <img src="./svg/GPS.svg" alt="">
                 </article>
             </li>
             <li>
@@ -19,6 +19,7 @@
                     教育心里学
                 </label>
                 <article class="tab-content">
+                    <img src="./svg/EPS.svg" alt="">
                 </article>
             </li>
             <li>
@@ -27,6 +28,7 @@
                     发展心理学
                 </label>
                 <article class="tab-content">
+                    <img src="./svg/DPS.svg" alt="">
                 </article>
             </li>
             <li class="deadline"><span style="font-family: cursive">距2022考研</span><Countdown></Countdown></li>
